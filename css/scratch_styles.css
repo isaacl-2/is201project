@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Hello Headline";
+  src: url("hello-headline.woff2") format("woff2");
+}
+h1 {
+  font-family: "Hello Headline", sans-serif;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Scratch Page</title>
+    <link rel="stylesheet" href="css/scratch_styles.css"/>
+
+</head>
+<body>
+    <h1>Bluey</h1>
+    <h2>The Cutest Little Australian Show This Side of the Mississippi</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UwRklsekGyA?si=3pu4q9_yLGCgoTY3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <h1>Tableau</h1>
+    <div id="tableauWrapper" style="width: 100%; overflow: hidden;">
+        <div class='tableauPlaceholder' id='viz1776193706073' style='position: relative; width: 1600px; height: 927px; margin: 0 auto; transform-origin: top left;'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Summary Dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlueyStats&#47;SummaryDash&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='BlueyStats&#47;SummaryDash' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlueyStats&#47;SummaryDash&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        var BASE_VIZ_WIDTH = 1600;
+        var BASE_VIZ_HEIGHT = 927;
+        var wrapperElement = document.getElementById('tableauWrapper');
+        var divElement = document.getElementById('viz1776193706073');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+
+        // Keep Tableau's native dashboard size, then scale the entire viz to fit.
+        vizElement.style.width = BASE_VIZ_WIDTH + 'px';
+        vizElement.style.height = BASE_VIZ_HEIGHT + 'px';
+
+        function fitTableauViz() {
+            var maxWidth = wrapperElement.clientWidth;
+            var rect = wrapperElement.getBoundingClientRect();
+            var maxHeight = window.innerHeight - rect.top - 16;
+            var widthScale = maxWidth / BASE_VIZ_WIDTH;
+            var heightScale = maxHeight / BASE_VIZ_HEIGHT;
+            var scale = Math.min(widthScale, heightScale, 1);
+
+            if (scale < 0.1) {
+                scale = Math.min(widthScale, 1);
+            }
+
+            divElement.style.transform = 'scale(' + scale + ')';
+            divElement.style.marginLeft = ((maxWidth - (BASE_VIZ_WIDTH * scale)) / 2) + 'px';
+            wrapperElement.style.height = (BASE_VIZ_HEIGHT * scale) + 'px';
+        }
+
+        window.addEventListener('resize', fitTableauViz);
+
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        scriptElement.onload = fitTableauViz;
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        fitTableauViz();
+    </script>
+</body>
+</html>
