@@ -1,7 +1,350 @@
-@font-face {
-  font-family: "Hello Headline";
-  src: url("hello-headline.woff2") format("woff2");
+body {
+  background-color: rgb(136, 202, 252);
+  color: #fff;
+  font-family: "Luckiest Guy", cursive;
+  margin: 0;
+  overflow-x: hidden;
 }
-h1 {
-  font-family: "Hello Headline", sans-serif;
+
+.site-frame {
+  min-height: 100vh;
+  transition: transform 0.35s ease;
+}
+
+.side-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 1000;
+  overflow: hidden;
+  transition: width 0.35s ease, background-color 0.2s ease, padding 0.35s ease;
+}
+
+.side-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.hamburger {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #585885 0%, #404066 65%, #313151 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background-color: #ffffff;
+}
+
+.side-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.25s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.side-nav-links a {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #404066;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.side-nav-links a:hover,
+.side-nav-links a:focus-visible {
+  background-color: #404066;
+  color: #ffffff;
+}
+
+.side-nav[open] {
+  width: 230px;
+  padding: 10px 12px 12px 10px;
+  background-color: #ffffff;
+  border-radius: 0 0 0 22px;
+  box-shadow: 0 8px 18px rgba(35, 35, 68, 0.25);
+}
+
+.side-nav[open] .side-nav-links {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.side-nav[open] + .site-frame {
+  transform: translateX(-165px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  font-family: "Luckiest Guy", cursive;
+  color: #fff;
+  text-shadow: 
+    -2px -2px 0 #0056b3, 
+    2px -2px 0 #0056b3, 
+    -2px 2px 0 #0056b3, 
+    2px 2px 0 #0056b3,
+    3px 3px 5px rgba(0,0,0,0.5); /* Blue outline and shadow */
+}
+
+#videoWrapper,
+#tableauWrapper {
+  width: 75%;
+  max-width: 1600px;
+  margin: 0 auto 24px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1600 / 927;
+  border: 0;
+}
+
+.character-list {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.character-sublist {
+  margin: 8px 0 18px;
+  padding-left: 34px;
+}
+
+.character-item {
+  position: relative;
+  margin: 10px 0;
+}
+
+.character-item.section-label {
+  margin-top: 16px;
+}
+
+.character-item.section-label .character-name {
+  cursor: default;
+}
+
+.character-item:focus {
+  outline: none;
+}
+
+.character-name {
+  display: inline-block;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  line-height: 1.2;
+  padding: 2px 8px;
+  border-radius: 10px;
+  transition: color 0.2s ease, background-color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.character-item:hover .character-name {
+  color: #404066;
+  background-color: #d2ebff;
+  text-shadow: 0 0 8px rgba(237, 204, 111, 0.55);
+}
+
+.character-name:focus-visible {
+  color: #404066;
+  background-color: #d2ebff;
+  text-shadow: 0 0 8px rgba(237, 204, 111, 0.65);
+}
+
+.character-list .character-item > img {
+  display: block;
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-8px);
+  transition: max-height 0.3s ease, margin-top 0.3s ease, opacity 0.2s ease, transform 0.3s ease;
+}
+
+/* Keep the family preview in landscape */
+.character-list > .character-item > img {
+  width: 220px;
+  height: 140px;
+}
+
+/* Make individual character previews portrait and uniform */
+.character-list ul .character-item > img {
+  width: 160px;
+  height: 220px;
+}
+
+.character-list .character-item.is-open > img {
+  max-height: 220px;
+  margin-top: 10px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.matching-game-btn {
+  display: block;
+  width: fit-content;
+  margin: 26px auto 0;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 2px solid #c9a64f;
+  background-color: #edcc6f;
+  color: #404066;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.matching-game-btn:hover,
+.matching-game-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-list {
+  font-size: 25px;
+}
+
+.character-item {
+  font-size: 30px;
+}
+
+.site-footer {
+  margin-top: 56px;
+  margin-bottom: 0;
+  padding: 22px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background: linear-gradient(160deg, #585885 0%, #404066 48%, #313151 100%);
+  border-top: 2px solid #7a7ab0;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer-logo {
+  width: 96px;
+  height: auto;
+  opacity: 0.96;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.footer-links a {
+  font-family: "luckiest guy", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #e6e9ff;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: #ffffff;
+  border-bottom-color: #b8c2ff;
+}
+
+@media (max-width: 700px) {
+  .side-nav {
+    width: 58px;
+    padding: 8px 10px 10px 8px;
+  }
+
+  .side-nav[open] {
+    width: 190px;
+    padding: 8px 10px 10px 8px;
+  }
+
+  .side-nav-links a {
+    font-size: 0.8rem;
+    padding: 7px 9px;
+  }
+
+  .side-nav[open] + .site-frame {
+    transform: translateX(-130px);
+  }
+
+  .site-footer {
+    padding: 18px 16px;
+  }
+
+  .footer-logo {
+    width: 78px;
+  }
+
+  .footer-links {
+    gap: 12px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+  }
 }

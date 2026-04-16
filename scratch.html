@@ -5,73 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <title>Scratch Page</title>
+    <!--links to style sheet and custom font for page-->
     <link rel="stylesheet" href="css/scratch_styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <h1>Bluey</h1>
-    <h2>The Cutest Little Australian Show This Side of the Mississippi</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/UwRklsekGyA?si=3pu4q9_yLGCgoTY3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <h1>Tableau</h1>
-    <div id="tableauWrapper" style="width: 100%; overflow: hidden;">
-        <div class='tableauPlaceholder' id='viz1776193706073' style='position: relative; width: 1600px; height: 927px; margin: 0 auto; transform-origin: top left;'>
-            <noscript>
-                <a href='#'>
-                    <img alt='Summary Dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlueyStats&#47;SummaryDash&#47;1_rss.png' style='border: none' />
-                </a>
-            </noscript>
-            <object class='tableauViz' style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' />
-                <param name='name' value='BlueyStats&#47;SummaryDash' />
-                <param name='tabs' value='no' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlueyStats&#47;SummaryDash&#47;1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='en-US' />
-            </object>
+<!--nav links-->
+    <details class="side-nav">
+        <summary class="hamburger" aria-label="Main navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </summary>
+        <div class="side-nav-links">
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
         </div>
-    </div>
-    <script type='text/javascript'>
-        var BASE_VIZ_WIDTH = 1600;
-        var BASE_VIZ_HEIGHT = 927;
-        var wrapperElement = document.getElementById('tableauWrapper');
-        var divElement = document.getElementById('viz1776193706073');
-        var vizElement = divElement.getElementsByTagName('object')[0];
+    </details>
+    <div class="site-frame">
+<!--header stuff-->
+        <header id="top">
+            <img src="images/bluey_logo.png" width="500" alt="Bluey Logo">
+        </header>
+            <h1>The Cutest Little Australian Show This Side of the Mississippi</h1>
+        <div class="content">
+ <!--video-->
+        <div id="videoWrapper">
+            <iframe
+                class="video-frame"
+                src="https://www.youtube.com/embed/Kf0jwCmNKfU?si=FAmeuyi49FMwawEJ"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+<!--tableau-->
+    <h1>Show Ratings</h1>
+        <div id="tableauWrapper">
+            <div class='tableauPlaceholder' id='viz1776193706073' style='position: relative; width: 1600px; height: 927px; margin: 0 auto; transform-origin: top left;'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='Summary Dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlueyStats&#47;SummaryDash&#47;1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='BlueyStats&#47;SummaryDash' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlueyStats&#47;SummaryDash&#47;1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                </object>
+            </div>
+        </div>
+        <script type='text/javascript'>
+            var BASE_VIZ_WIDTH = 1600;
+            var BASE_VIZ_HEIGHT = 927;
+            var wrapperElement = document.getElementById('tableauWrapper');
+            var divElement = document.getElementById('viz1776193706073');
+            var vizElement = divElement.getElementsByTagName('object')[0];
 
-        // Keep Tableau's native dashboard size, then scale the entire viz to fit.
-        vizElement.style.width = BASE_VIZ_WIDTH + 'px';
-        vizElement.style.height = BASE_VIZ_HEIGHT + 'px';
+            // Keep Tableau's native dashboard size, then scale the entire viz to fit.
+            vizElement.style.width = BASE_VIZ_WIDTH + 'px';
+            vizElement.style.height = BASE_VIZ_HEIGHT + 'px';
 
-        function fitTableauViz() {
-            var maxWidth = wrapperElement.clientWidth;
-            var rect = wrapperElement.getBoundingClientRect();
-            var maxHeight = window.innerHeight - rect.top - 16;
-            var widthScale = maxWidth / BASE_VIZ_WIDTH;
-            var heightScale = maxHeight / BASE_VIZ_HEIGHT;
-            var scale = Math.min(widthScale, heightScale, 1);
+            function fitTableauViz() {
+                var maxWidth = wrapperElement.clientWidth;
+                var widthScale = maxWidth / BASE_VIZ_WIDTH;
+                var scale = Math.min(widthScale, 1);
 
-            if (scale < 0.1) {
-                scale = Math.min(widthScale, 1);
+                divElement.style.transform = 'scale(' + scale + ')';
+                divElement.style.marginLeft = ((maxWidth - (BASE_VIZ_WIDTH * scale)) / 2) + 'px';
+                wrapperElement.style.height = (BASE_VIZ_HEIGHT * scale) + 'px';
             }
 
-            divElement.style.transform = 'scale(' + scale + ')';
-            divElement.style.marginLeft = ((maxWidth - (BASE_VIZ_WIDTH * scale)) / 2) + 'px';
-            wrapperElement.style.height = (BASE_VIZ_HEIGHT * scale) + 'px';
-        }
+            window.addEventListener('resize', fitTableauViz);
 
-        window.addEventListener('resize', fitTableauViz);
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            scriptElement.onload = fitTableauViz;
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            fitTableauViz();
+        </script>
+<!--character list-->
+    <h1>Characters</h1>
+    <h3>(Click to See Each One)</h3>
+        <ol class="character-list">
+            <li class="character-item" tabindex="0">
+                <button class="character-name" type="button" aria-expanded="false">Heeler Family</button>
+                <img src="images/bluey_fam.jpg" alt="Heeler family image"/>
+        
+            <ul class="character-sublist">
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Bluey</button>
+                    <img src="images/bluey.png" alt="Bluey character image">
+                </li>
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Bingo</button>
+                    <img src="images/Bingo_Website.webp" alt="Bingo character image">
+                </li>
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Chilli</button>
+                    <img src="images/Chilli_Website.webp" alt="Chilli character image">
+                </li>
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Bandit</button>
+                    <img src="images/bandit.webp" alt="Bandit character image">
+                </li>
 
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        scriptElement.onload = fitTableauViz;
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        fitTableauViz();
+            </ul>
+            </li>
+            <li class="character-item section-label">
+                <span class="character-name">Friends</span>
+            <ul class="character-sublist">
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Mackenzie</button>
+                    <img src="images/Mackenzie.webp" alt="Mackenzie character image">
+                </li>
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Lucky</button>
+                    <img src="images/lucky.png" alt="Lucky character image">
+                </li>
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Coco</button>
+                    <img src="images/coco.webp" alt="Coco character image">
+                </li>
+                <li class="character-item" tabindex="0">
+                    <button class="character-name" type="button" aria-expanded="false">Jean Luc</button>
+                    <img src="images/jean-luc.png" alt="Jean Luc character image">
+                </li>
+            </ul>
+            </li>
+        </ol>
+    <a class="matching-game-btn" href="matching.html">Play a Character Matching Game!</a>
+    </div>
+    <script>
+        const characterItems = document.querySelectorAll('.character-list .character-item');
+
+        characterItems.forEach((item) => {
+            const nameButton = item.querySelector('button.character-name');
+            if (!nameButton) return;
+
+            nameButton.addEventListener('click', () => {
+                const isOpen = item.classList.toggle('is-open');
+                nameButton.setAttribute('aria-expanded', String(isOpen));
+            });
+        });
     </script>
+<!--footer stuff-->
+        <footer class="site-footer">
+            <div class="footer-brand">
+                <img class="footer-logo" src="images/bluey_logo.png" alt="Bluey logo">
+            </div>
+            <nav class="footer-links" aria-label="Footer links">
+                <a href="https://www.bluey.tv" target="_blank" rel="noopener noreferrer">Official Website</a>
+                <a href="#top">Back to Top</a>
+            </nav>
+        </footer>
+    </div>
 </body>
 </html>
